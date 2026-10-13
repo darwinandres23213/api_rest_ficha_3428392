@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('line_total', 12, 2);
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('order_id');//hhgvhhv
             $table->foreign('order_id')->references('id')->on("orders")->onDelete("cascade");
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on("products")->onDelete("cascade");
