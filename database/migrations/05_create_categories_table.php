@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps(); //
             $table->softDeletes(); //
             // $table->unSignedBigInter(''); // llave foranea, definiendo el nombre de la llave foranea
-            // $table->foreing('country_id')->reference("id")->on("countries")->onDelete("cascade"); //
+            // $table->foreign('country_id')->reference("id")->on("countries")->onDelete("cascade"); //
         });
     }
 

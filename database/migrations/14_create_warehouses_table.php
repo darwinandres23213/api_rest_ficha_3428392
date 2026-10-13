@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->unSignedBigInterger('city_id');
-            $table->foreing('city_id')->reference("id")->on("cities")->onDelete("cascade");
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references("id")->on("cities")->onDelete("cascade");
             $table->string('name', 120);
             $table->string('code', 30)->unique();
             $table->string('address')->nullable();

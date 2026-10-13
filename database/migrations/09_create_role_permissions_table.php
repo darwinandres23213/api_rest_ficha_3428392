@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('role_permissions', function (Blueprint $table) {
-        $table->id();
-        $table->unSignedBigInterger('role_id');
-        $table->foreing('role_id')->reference("id")->on("role")->onDelete("cascade");
-        $table->unSignedBigInterger('permission_id');
-        $table->foreing('permission_id')->reference("id")->on("permission")->onDelete("cascade");
-        $table->timestamps();
-        $table->softDeletes();
+            $table->id();
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references("id")->on("roles")->onDelete("cascade");
+            $table->unsignedBigInteger('permission_id');
+            $table->foreign('permission_id')->references("id")->on("permissions")->onDelete("cascade");
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

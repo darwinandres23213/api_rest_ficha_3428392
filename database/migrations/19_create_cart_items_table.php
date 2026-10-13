@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cart_items', function (Blueprint $table) {
+        Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-             $table->unsignedInteger('quantity');
+             $table->unsignedBigInteger('quantity');
              $table->decimal('unit_price', 12, 2);
              $table->timestamps();
              $table->softDeletes();
              $table->unsignedBigInteger('cart_id');
-             $table->foreing('cart_id')->reference('id')->on('carts')->onDelete('cascade');
+             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
              $table->unsignedBigInteger('product_id');
-             $table->foreing('product_id')->reference('id')->on('productss')->onDelete('cascade');
+             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
     
     
 

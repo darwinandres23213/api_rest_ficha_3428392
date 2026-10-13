@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();//primary kay
-            $table->unSigned8igInteger('country_id');//llave foranea, definiendo el nombre de la llave foranea;
-            $table->foreing('country_id')->reference("id")->on("countries")->onDelate("cascade");
+            $table->unsignedBigInteger('country_id');//llave foranea, definiendo el nombre de la llave foranea;
+            $table->foreign('country_id')->references("id")->on("countries")->onDelete("cascade");
             $table->string('name', 120);
             $table->string('code', 10)->nullable();
             $table->timestamps();

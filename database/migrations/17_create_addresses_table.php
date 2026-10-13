@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id(); //llave primaria "id"
-            $table->unsigneBiginter('customer_id');
-            $table->foreing('customer_id')->reference("id")->on("custumers")->onDelete("cascade");
-            $tale->unsigneBiginter('city_id');
-            $table->foreing('city_id')->reference("id")->on("cities")->onDelete("cascade");
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references("id")->on("customers")->onDelete("cascade");
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references("id")->on("cities")->onDelete("cascade");
             $table->string('label',60)->nullable();
             $table->string('line1', 180);
             $table->string('line2', 180)->nullable();

@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('oreders', function (Blueprint $table) {
             $table->id("id_order");//llave primaria "id"
             $table->unsignedBigInteger('customer_id');//llave foranea, definiendo de la llave foranea
-            $table->foreignId('customer_id')->reference("id")->on("customers")->onDelete("cascade");
+            $table->foreign('customer_id')->references("id")->on("customers")->onDelete("cascade");
             $table->unsignedBigInteger("user_id");//llave foranea, definiendo de la llave foranea
-            $table->foreignId('user_id')->reference("id")->on("users")->onDelete("cascade");
+            $table->foreign('user_id')->references("id")->on("users")->onDelete("cascade");
             $table->unsignedBigInteger("coupon_id");//llave foranea, definiendo de la llave foranea
-            $table->foreignId('coupon_id')->reference("id")->on("coupons")->onDelete("cascade");
+            $table->foreign('coupon_id')->references("id")->on("coupons")->onDelete("cascade");
             $table->unsignedBigInteger("address_id");//llave foranea, definiendo de la llave foranea
-            $table->foreignId('address_id')->reference("id")->on("addressses")->onDelete("cascade");
-            
+            $table->foreign('address_id')->references("id")->on("addresses")->onDelete("cascade");
             $table->string('order_number', 40)->unique()->nullable();
             $table->string('status', 30)->default('pending');
             $table->decimal('subtotal', 12, 2);

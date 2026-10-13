@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            $table->id(); //llave primaria "id"
-            $table->string('code', 40)->unique();
-            $table->string('discount_type', 20);
-            $table->decimal('discount_value', 12, 2);
-            $table->boolean('is_active')->default(true);
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id("id"); //llave primaria "id"
+            $table->string('status', 30)->default('open');
+            $table->unsignedBigInteger('customer_id'); //llave foranea 
+            $table->foreign('customer_id')->references("id")->on("customers")->onDelete("cascade") ;
             $table->timestamps();
             $table->softDeletes();
-        });
+     });
     }
 
     /**
@@ -27,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('coupons', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             //
         });
     }

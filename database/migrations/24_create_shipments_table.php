@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::table('shipments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
-            $table->foreing('order_id')->references('id')->on("orders")->onDelete("cascade");
+            $table->foreign('order_id')->references('id')->on("orders")->onDelete("cascade");
             $table->unsignedBigInteger('address_id');
-            $table->foreing('address_id')->references('id')->on("address")->onDelete("cascade");
+            $table->foreign('address_id')->references('id')->on("address")->onDelete("cascade");
             $table->string('carrier', 80)->nullable();
             $table->string('tracking_code', 80)->nullable();
             $table->string('status', 30)->default('pending');

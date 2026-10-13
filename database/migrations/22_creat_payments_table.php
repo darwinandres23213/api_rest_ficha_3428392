@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::creat('payments', function (Blueprint $table) {
             $table->id(); //lave primaria "id"
             $table->unsignedBingInteger('order_id');
-            $table->foreing('order_id')->references("id")->on("orders")->onDelete("cascade");
+            $table->foreign('order_id')->references("id")->on("orders")->onDelete("cascade");
             $table->string('method', 40);
             $table->decimal('amount', 12, 2);
             $table->string('status', 30)->default('pending');

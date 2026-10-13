@@ -13,10 +13,10 @@ return new class extends Migration
     {
          Schema::create('inventories', function (Blueprint $table) {
             $table->id(); //llave primeraria "id"
-            $table->unSigmedBigInteger('product_id')->unique();
-            $table->foreign('product_id')->reference('id')->on('products')->onDelete("cascade");
-            $table->unSigmedBigInteger('warehause_id')->unique();
-            $table->foreign('warehause_id')->reference('id')->on('warehouses')->onDelete("cascade");
+            $table->unsignedBigInteger('product_id')->unique();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete("cascade");
+            $table->unsignedBigInteger('warehouse_id')->unique();
+            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete("cascade");
             $table->integer('quantity')->default(0);
             $table->timestamp('last_movement_at')->nullable();
             $table->timestamps();
