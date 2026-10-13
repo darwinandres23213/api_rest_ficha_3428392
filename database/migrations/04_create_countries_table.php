@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('countries', function (Blueprint $table) {
-        $table->id();
-        $table->string("name",120);
-        $table->char('iso_code', 3)->unique();
-        $table->string('phone_code',8)->nullable();
-        $table->timestamps();
-        $table->softDeletes();
+        Schema::create('countries', function (Blueprint $table) {
+            $table->id();
+            $table->string("name",120);
+            $table->char('iso_code', 3)->unique();
+            $table->string('phone_code',8)->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

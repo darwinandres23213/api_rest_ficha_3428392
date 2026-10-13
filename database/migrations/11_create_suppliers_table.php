@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id(); //llave primeraria "id"
-            $table->unSigmedBigInteger('document_type_id');
-            $table->foreign('document_type_id')->reference('id')->on('document_types')->onDelete("cascade");
-            $table->unSigmedBigInteger('city_id');
-            $table->foreign('city_id')->reference('id')->on('cities')->onDelete("cascade");
+            $table->unsignedBigInteger('document_type_id');
+            $table->foreign('document_type_id')->references('id')->on('document_types')->onDelete("cascade");
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete("cascade");
             $table->string('business_name', 180);
             $table->string("document_number", 30)->unique();
             $table->string('email', 150)->nullable();
