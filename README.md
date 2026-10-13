@@ -162,7 +162,7 @@ En el modelo Eloquent: `use SoftDeletes;` y `$dates` / cast de `deleted_at`.
 | `deleted_at` | TIMESTAMP NULL | `$table->softDeletes()` | SoftDeletes |
 
 **FK:** `roles.id`, `permissions.id`  
-**Unique:** `['role_id', 'permission_id']`
+**Unique:** `['role_id', 'permission_id']`  
 
 ---
 
